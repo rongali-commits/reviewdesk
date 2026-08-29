@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A private customer feedback experience powered by ReviewDesk." />
+    <title>Share your experience | ReviewDesk</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body class="feedback-page">
+    <div class="demo-ribbon" id="demo-ribbon">
+      <span>LIVE PRODUCT DEMO</span>
+      <a href="/admin">Open business dashboard</a>
+    </div>
+
+    <header class="public-header shell">
+      <a class="brand-lockup" href="/" aria-label="Business home">
+        <span class="brand-mark" id="brand-mark">N</span>
+        <span>
+          <strong id="brand-name">Northstar Auto Care</strong>
+          <small id="brand-tagline">Honest care for every mile.</small>
+        </span>
+      </a>
+      <span class="private-pill">
+        <span class="status-dot"></span>
+        Private feedback
+      </span>
+    </header>
+
+    <main class="feedback-shell shell">
+      <section class="feedback-intro">
+        <div class="eyebrow"><span>01</span> YOUR EXPERIENCE</div>
+        <h1 id="review-heading">How was your recent visit?</h1>
+        <p class="intro-copy">
+          Hi <strong id="customer-name">Jordan</strong>. Your honest feedback helps our team
+          understand what worked and what we can improve.
+        </p>
+
+        <div class="service-card" id="service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 7h16M7 4v6m10-6v6M5 11h14v9H5z" /></svg>
+          </div>
+          <div>
+            <span>Recent service</span>
+            <strong id="service-name">Scheduled maintenance</strong>
+            <small id="service-date">August 27, 2026</small>
+          </div>
+        </div>
+
+        <div class="trust-note">
+          <span class="trust-icon">✓</span>
+          <p><strong>Every response is welcome.</strong> This form does not filter feedback by rating.</p>
+        </div>
+      </section>
+
+      <section class="feedback-card" aria-labelledby="form-title">
+        <div id="feedback-form-view">
+          <div class="card-progress"><span class="active"></span><span></span></div>
+          <div class="card-kicker">Takes less than a minute</div>
+          <h2 id="form-title">Rate your experience</h2>
+          <p class="card-lead">Choose the rating that honestly reflects your visit.</p>
+
+          <form id="feedback-form">
+            <fieldset class="rating-fieldset">
+              <legend class="sr-only">Rating from one to five</legend>
+              <div class="rating-buttons" id="rating-buttons">
+                <button type="button" data-rating="1" aria-label="1 out of 5">1<span>★</span></button>
+                <button type="button" data-rating="2" aria-label="2 out of 5">2<span>★</span></button>
+                <button type="button" data-rating="3" aria-label="3 out of 5">3<span>★</span></button>
+                <button type="button" data-rating="4" aria-label="4 out of 5">4<span>★</span></button>
+                <button type="button" data-rating="5" aria-label="5 out of 5">5<span>★</span></button>
+              </div>
+              <div class="rating-labels"><span>Needs work</span><span>Excellent</span></div>
+            </fieldset>
+
+            <label class="field-label" for="comment">Tell us about your experience</label>
+            <textarea
+              id="comment"
+              name="comment"
+              rows="5"
+              minlength="3"
+              maxlength="2000"
+              placeholder="What went well? What could we do better?"
+              required
+            ></textarea>
+            <div class="field-meta"><span>Specific feedback is most helpful</span><span id="char-count">0 / 2000</span></div>
+
+            <label class="field-label" for="display-name">Your name</label>
+            <input id="display-name" name="display_name" type="text" maxlength="100" value="Jordan Blake" required />
+            <input class="honeypot" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <label class="consent-row">
+              <input id="testimonial-consent" type="checkbox" />
+              <span>
+                <strong>Allow us to feature this feedback</strong>
+                <small>Your words may appear on our website after review. Your email is never shown.</small>
+              </span>
+            </label>
+
+            <p class="form-error" id="form-error" role="alert"></p>
+            <button class="primary-button" id="submit-button" type="submit">
+              Send private feedback
+              <span aria-hidden="true">↗</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="success-view" id="success-view" hidden>
+          <div class="success-check">✓</div>
+          <div class="card-kicker">FEEDBACK RECEIVED</div>
+          <h2>Thank you for being honest.</h2>
+          <p id="thank-you-message">Your feedback helps our team improve and helps future customers make an informed choice.</p>
+          <div class="honest-review-card">
+            <span>Want to share publicly?</span>
+            <p>The option below is available to every customer, regardless of the rating submitted.</p>
+            <a class="primary-button" id="public-review-button" href="/demo/public">
+              Review us on Google
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <button class="text-button" id="reset-demo" type="button">Reset product demo</button>
+        </div>
+      </section>
+    </main>
+
+    <section class="process-strip">
+      <div class="shell process-grid">
+        <div><span>01</span><strong>Request</strong><small>Sent at the right moment</small></div>
+        <div><span>02</span><strong>Listen</strong><small>Capture honest feedback</small></div>
+        <div><span>03</span><strong>Improve</strong><small>Act on customer insight</small></div>
+        <div><span>04</span><strong>Build trust</strong><small>Share approved stories</small></div>
+      </div>
+    </section>
+
+    <footer class="public-footer shell">
+      <span>Feedback experience powered by <strong>ReviewDesk</strong></span>
+      <span id="privacy-wrap" hidden><a id="privacy-link" href="#">Privacy</a></span>
+    </footer>
+
+    <script src="/assets/public.js" defer></script>
+  </body>
+</html>
+

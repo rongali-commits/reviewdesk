@@ -1,0 +1,18 @@
+{
+  "name": "Northstar Auto Care",
+  "short_name": "Northstar",
+  "logo_text": "N",
+  "tagline": "Honest care for every mile.",
+  "primary_color": "#173f3a",
+  "accent_color": "#f2a65a",
+  "contact_email": "hello@northstar.example",
+  "sender_name": "Maya from Northstar Auto Care",
+  "reply_to": "hello@northstar.example",
+  "public_review_label": "Review us on Google",
+  "public_review_url": "",
+  "privacy_url": "",
+  "thank_you_message": "Thank you for sharing your experience. Your feedback helps our team improve and helps future customers make an informed choice.",
+  "review_prompt": "How was your recent visit?",
+  "testimonial_heading": "What our customers say"
+}
+

@@ -1,0 +1,27 @@
+[
+  {
+    "step": 1,
+    "delay_hours": 0,
+    "name": "Thank-you request",
+    "subject": "How was your visit to {{business_name}}?",
+    "body": "Hi {{name}},\n\nThank you for choosing {{business_name}}. We would value your honest feedback about your recent experience. It takes less than a minute:\n\n{{review_url}}\n\nEvery response helps us improve.\n\n{{sender_name}}",
+    "enabled": true
+  },
+  {
+    "step": 2,
+    "delay_hours": 72,
+    "name": "Friendly reminder",
+    "subject": "A quick reminder from {{business_name}}",
+    "body": "Hi {{name}},\n\nIf you have a moment, we would still appreciate your honest feedback about your recent experience with {{business_name}}:\n\n{{review_url}}\n\nThank you,\n{{sender_name}}",
+    "enabled": true
+  },
+  {
+    "step": 3,
+    "delay_hours": 168,
+    "name": "Final reminder",
+    "subject": "Last reminder: your feedback matters",
+    "body": "Hi {{name}},\n\nThis is our final reminder. If you would like to share feedback about {{business_name}}, you can use this private link:\n\n{{review_url}}\n\nWe appreciate your time.\n\n{{sender_name}}",
+    "enabled": true
+  }
+]
+

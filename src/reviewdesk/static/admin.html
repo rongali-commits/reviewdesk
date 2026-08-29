@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>ReviewDesk | Reputation workspace</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body class="admin-page">
+    <div class="auth-screen" id="auth-screen">
+      <form class="auth-card" id="auth-form">
+        <div class="product-mark">R</div>
+        <div class="eyebrow"><span>PRIVATE</span> BUSINESS WORKSPACE</div>
+        <h1>Open ReviewDesk</h1>
+        <p>Enter the private dashboard token supplied with this deployment.</p>
+        <label class="field-label" for="admin-token">Dashboard token</label>
+        <input id="admin-token" type="password" autocomplete="current-password" placeholder="Enter private token" required />
+        <p class="form-error" id="auth-error" role="alert"></p>
+        <button class="primary-button" type="submit">Open dashboard <span>↗</span></button>
+        <button class="demo-token-button" id="demo-token-button" type="button">Use demo access</button>
+      </form>
+    </div>
+
+    <div class="dashboard" id="dashboard" hidden>
+      <aside class="sidebar">
+        <a class="product-lockup" href="/admin">
+          <span class="product-mark">R</span>
+          <span><strong>ReviewDesk</strong><small>Reputation workspace</small></span>
+        </a>
+        <nav class="side-nav" aria-label="Dashboard navigation">
+          <button class="active" data-section="overview"><span>⌂</span>Overview</button>
+          <button data-section="customers"><span>◎</span>Customers</button>
+          <button data-section="feedback"><span>✦</span>Feedback</button>
+          <button data-section="automation"><span>↻</span>Automation</button>
+          <button data-section="brand"><span>◇</span>Brand & widget</button>
+        </nav>
+        <div class="sidebar-foot">
+          <div class="mode-card">
+            <span class="status-dot"></span>
+            <div><strong>Safe demo mode</strong><small>No emails are being sent</small></div>
+          </div>
+          <a href="/" target="_blank">Open customer experience <span>↗</span></a>
+          <a href="/wall" target="_blank">Open testimonial wall <span>↗</span></a>
+        </div>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-header">
+          <div>
+            <span class="section-kicker" id="section-kicker">COMMAND CENTER</span>
+            <h1 id="section-title">Reputation overview</h1>
+          </div>
+          <div class="header-actions">
+            <button class="secondary-button" id="refresh-button" type="button">Refresh</button>
+            <button class="primary-button small" id="add-customer-button" type="button">Add customer <span>+</span></button>
+          </div>
+        </header>
+
+        <section class="admin-section active" id="section-overview">
+          <div class="metrics-grid" id="metrics-grid"></div>
+          <div class="dashboard-grid">
+            <article class="panel funnel-panel">
+              <div class="panel-head"><div><span>REQUEST FUNNEL</span><h2>From service to response</h2></div><small id="response-rate">0% response</small></div>
+              <div class="funnel" id="funnel"></div>
+            </article>
+            <article class="panel rating-panel">
+              <div class="panel-head"><div><span>CUSTOMER SIGNAL</span><h2>Average rating</h2></div></div>
+              <div class="rating-orbit"><strong id="average-rating">0.0</strong><span>★★★★★</span><small>from genuine responses</small></div>
+            </article>
+          </div>
+          <div class="dashboard-grid lower-grid">
+            <article class="panel">
+              <div class="panel-head"><div><span>LATEST FEEDBACK</span><h2>What customers are saying</h2></div><button class="text-button" data-go="feedback">View all</button></div>
+              <div class="feedback-list" id="recent-feedback"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-head"><div><span>LIVE ACTIVITY</span><h2>Request timeline</h2></div></div>
+              <div class="activity-list" id="activity-list"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="admin-section" id="section-customers">
+          <div class="section-toolbar">
+            <div class="search-wrap"><span>⌕</span><input id="customer-search" type="search" placeholder="Search customers or services" /></div>
+            <div class="toolbar-actions">
+              <label class="secondary-button file-button">Import CSV<input id="csv-file" type="file" accept=".csv,text/csv" /></label>
+              <a class="secondary-button" id="export-link" href="#">Export CSV</a>
+            </div>
+          </div>
+          <div class="panel table-panel">
+            <table>
+              <thead><tr><th>Customer</th><th>Service</th><th>Status</th><th>Messages</th><th>Rating</th><th>Added</th></tr></thead>
+              <tbody id="customers-table"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="admin-section" id="section-feedback">
+          <div class="section-intro"><p>Feature only feedback where the customer explicitly granted testimonial permission.</p></div>
+          <div class="feedback-cards" id="feedback-cards"></div>
+        </section>
+
+        <section class="admin-section" id="section-automation">
+          <div class="automation-layout">
+            <div>
+              <div class="section-intro"><p>Requests stop automatically as soon as a customer submits feedback.</p></div>
+              <div class="sequence-list" id="sequence-list"></div>
+            </div>
+            <aside class="panel automation-note">
+              <span class="section-kicker">DELIVERY MODE</span>
+              <h2 id="provider-name">Demo provider</h2>
+              <p>Demo mode records messages without sending them. Connect an approved SMTP provider before client launch.</p>
+              <button class="secondary-button" id="process-button" type="button">Process due requests</button>
+              <div class="policy-note"><strong>Policy-safe by design</strong><p>Every customer sees the same public review option. No rating-based filtering or incentives.</p></div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="admin-section" id="section-brand">
+          <div class="brand-layout">
+            <form class="panel settings-form" id="settings-form">
+              <div class="panel-head"><div><span>WHITE-LABEL SETTINGS</span><h2>Business identity</h2></div><button class="primary-button small" type="submit">Save changes</button></div>
+              <div class="form-grid" id="settings-fields"></div>
+              <p class="form-status" id="settings-status"></p>
+            </form>
+            <aside class="panel widget-card">
+              <span class="section-kicker">EMBEDDABLE PROOF</span>
+              <h2>Customer stories widget</h2>
+              <p>Feature approved testimonials on any website with one script tag.</p>
+              <div class="mini-widget" id="mini-widget"></div>
+              <label class="field-label" for="embed-code">Embed code</label>
+              <textarea id="embed-code" rows="4" readonly></textarea>
+              <button class="secondary-button" id="copy-embed" type="button">Copy embed code</button>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="customer-dialog">
+      <form class="dialog-card" id="customer-form">
+        <div class="dialog-head"><div><span class="section-kicker">NEW REQUEST</span><h2>Add a customer</h2></div><button type="button" class="icon-button" id="close-dialog" aria-label="Close">×</button></div>
+        <div class="form-grid two">
+          <label><span class="field-label">Customer name</span><input name="name" required maxlength="100" /></label>
+          <label><span class="field-label">Email</span><input name="email" type="email" required maxlength="200" /></label>
+          <label><span class="field-label">Service</span><input name="service" maxlength="120" placeholder="Completed service" /></label>
+          <label><span class="field-label">Service date</span><input name="service_date" type="date" /></label>
+        </div>
+        <label class="consent-row"><input name="reminders_enabled" type="checkbox" checked /><span><strong>Send reminder sequence</strong><small>Stops automatically after feedback is received.</small></span></label>
+        <p class="form-error" id="customer-error"></p>
+        <div class="dialog-actions"><button class="secondary-button" type="button" id="cancel-dialog">Cancel</button><button class="primary-button" type="submit">Create request <span>↗</span></button></div>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status"></div>
+    <script src="/assets/admin.js" defer></script>
+  </body>
+</html>
+
