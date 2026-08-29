@@ -7,4 +7,4 @@ __pycache__/
 runtime/
 sales-assets/*.mp4
 sales-assets/*.wav
-
+.vercel/
