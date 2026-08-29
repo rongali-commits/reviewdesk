@@ -45,11 +45,14 @@ class Settings:
     @classmethod
     def from_env(cls) -> Settings:
         load_dotenv()
+        default_database_path = (
+            "/tmp/reviewdesk.db" if _bool(os.getenv("VERCEL"), False) else "runtime/reviewdesk.db"
+        )
         return cls(
             app_env=os.getenv("APP_ENV", "development").strip().lower(),
             admin_token=os.getenv("ADMIN_TOKEN", "development-admin-token"),
             webhook_token=os.getenv("WEBHOOK_TOKEN", "development-webhook-token"),
-            database_path=Path(os.getenv("DATABASE_PATH", "runtime/reviewdesk.db")),
+            database_path=Path(os.getenv("DATABASE_PATH", default_database_path)),
             business_file=Path(os.getenv("BUSINESS_FILE", str(_bundled("business.json")))),
             sequence_file=Path(os.getenv("SEQUENCE_FILE", str(_bundled("sequence.json")))),
             email_provider=os.getenv("EMAIL_PROVIDER", "demo").strip().lower(),
